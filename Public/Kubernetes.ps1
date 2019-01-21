@@ -39,3 +39,16 @@ function New-KubeConfig {
     }
 "@
 }
+
+function Get-HostedTenants
+{
+    param (
+        [string]$kubectl,
+        [string]$kubeConfig
+    )
+
+    return & $kubectl get namespaces --selector purpose=hostedInstance -o json --kubeconfig="$kubeConfig" |
+            ConvertFrom-Json |
+            Select -ExpandProperty items |
+            ? { -not ($_.metadata.labels.dnsPrefix -in $excludedInstances) }
+}

@@ -12,7 +12,7 @@
 RootModule = 'PowershellLambdaTesting.psm1'
 
 # Version number of this module.
-ModuleVersion = '0.0.7'
+ModuleVersion = '0.0.8'
 
 # Supported PSEditions
 # CompatiblePSEditions = @()
@@ -69,7 +69,7 @@ Description = 'Common functions used when running Lambdas'
 # NestedModules = @()
 
 # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-FunctionsToExport = @('Clear-Tmp', 'Expand-RemoteArchive', 'New-TemporaryDirectory', 'New-KubeConfig', 'Enable-TLS12', 'Disable-DownloadProgressBar')
+FunctionsToExport = @('Get-HostedTenants', 'Clear-Tmp', 'Expand-RemoteArchive', 'New-TemporaryDirectory', 'New-KubeConfig', 'Enable-TLS12', 'Disable-DownloadProgressBar')
 
 # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
 CmdletsToExport = @()

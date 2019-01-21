@@ -22,3 +22,4 @@ Export-ModuleMember -Function Expand-RemoteArchive
 Export-ModuleMember -Function New-TemporaryDirectory
 Export-ModuleMember -Function New-KubeConfig
 Export-ModuleMember -Function Enable-TLS12
+Export-ModuleMember -Function Get-HostedTenants
