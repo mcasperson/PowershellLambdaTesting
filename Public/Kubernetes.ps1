@@ -44,11 +44,13 @@ function Get-HostedTenants
 {
     param (
         [string]$kubectl,
-        [string]$kubeConfig
+        [string]$kubeConfig,
+        [string[]]$excludedInstances
     )
 
     return & $kubectl get namespaces --selector purpose=hostedInstance -o json --kubeconfig="$kubeConfig" |
             ConvertFrom-Json |
             Select -ExpandProperty items |
+            Sort-Object @{Expression= { $_.metadata.labels.dnsPrefix } } |
             ? { -not ($_.metadata.labels.dnsPrefix -in $excludedInstances) }
 }
